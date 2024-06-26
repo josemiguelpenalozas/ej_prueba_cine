@@ -1,10 +1,12 @@
-import csv
-import msvcrt
+
+
 from funciones import *
 
 while True:
     limpiar_pantalla()
     print("Cine Hoyt")
+    print("Elprecio de las entradas es de $5000 con ")
+    print(" descuento para adultos mayores y niños")
     print("1-mostrar asientos")
     print("2-comprar entrada")
     print("3-Mostrar ventas")

@@ -2,7 +2,6 @@ import os
 import msvcrt
 import csv
 asientos=[["0","0","0","0"],["0","0","0","0"],["0","0","0","0"],["0","0","0","0"],["0","0","0","0"]]
-precio_entrada=5000
 ventas=[]
 
 
@@ -23,10 +22,27 @@ def opcion1():
         print("\n")
         i=i+1
 
+
 def opcion2():
     while True:
-        fila=int(input("Ingrese la fila en la que quiere estar: "))
-        columna=int(input("Ingrese la columna en la que quiere estar: "))
+        while True:
+            try:
+                fila=int(input("Ingrese la fila en la que quiere estar: "))
+                if fila>=1 and fila<=4:
+                    break
+                else:
+                    print("ERROR esa fila no existe")
+            except:
+                print("Ingrese numero solamente")
+        while True:
+            try:
+                columna=int(input("Ingrese la columna en la que quiere estar: "))
+                if columna<=4 and columna>=1:
+                    break
+                else:
+                    print("ERROR esa columna no existe")
+            except:
+                print("ingrese nimero solamente")
         i=0
         while i<len(asientos):
             x=0
@@ -35,14 +51,36 @@ def opcion2():
                     asientos[i-1][x-1]="X"
                 x=x+1
             i=i+1
-        nombre=input("ingrese su nombre: ")
-        edad=int(input("ingrese su edad: "))
-        nro=input("ingrese su numero telefonico: ")
+        while True:
+            try:
+                nombre=input("ingrese su nombre: ")
+                if len(nombre)>3:
+                    break
+                else:
+                    print("nombre muy corto")
+            except:
+                print("ERROR")
+        while True:        
+            try:
+                edad=int(input("ingrese su edad: "))
+                if edad>13:
+                    break
+                else:
+                    print("Demasiado joven para comprar")
+            except:
+                print("ERROR,solo ingrese numeros")
+        while True:
+            try:
+                nro=input("ingrese su numero telefonico: ")
+                if len(nro)==8:
+                    break
+            except:
+                print("Error")
         precio_entrada=5000
         if edad>=65:
             precio_entrada=precio_entrada-(precio_entrada*0.15)
         elif edad<=18:
-            precio_entrada=precio_entrada-(precio_entrada*0,20)
+            precio_entrada=precio_entrada-(precio_entrada*0.20)
         
         compra={"nombre":nombre,
                 "edad":edad,
